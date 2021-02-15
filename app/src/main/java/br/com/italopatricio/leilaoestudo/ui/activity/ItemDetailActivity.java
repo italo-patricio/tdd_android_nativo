@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.italopatricio.leilaoestudo.R;
+import br.com.italopatricio.leilaoestudo.models.Lance;
 import br.com.italopatricio.leilaoestudo.models.Leilao;
 
 public class ItemDetailActivity extends AppCompatActivity {
@@ -25,6 +26,13 @@ public class ItemDetailActivity extends AppCompatActivity {
             maiorLance.setText(String.valueOf(leilao.getMaiorLance()));
             TextView menorLance = findViewById(R.id.text_min_value_item_detail);
             menorLance.setText(String.valueOf(leilao.getMenorLance()));
+            TextView maioresLances = findViewById(R.id.text_list_values_max);
+            StringBuilder sb = new StringBuilder();
+            for(Lance lance: leilao.treMaioresLances()) {
+                sb.append(lance.getValor() + "\n");
+            }
+            String maioresLancesEmTexto = sb.toString();
+            maioresLances.setText(maioresLancesEmTexto);
         }
     }
 }
