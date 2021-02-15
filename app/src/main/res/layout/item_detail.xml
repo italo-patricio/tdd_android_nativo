@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/image_view_item_detail"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_indisponivel"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/text_description_item_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_item_detail"
+        tools:text="Descricao detalhada do proudto leiloado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="24sp"
+        />
+
+    <TextView
+        android:id="@+id/text_max_label_item_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_description_item_detail"
+        android:text="Maior lance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:id="@+id/text_max_value_item_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_max_label_item_detail"
+        tools:text="R$ 300,00"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginLeft="8dp"
+        android:textSize="25sp"
+        android:textColor="@color/green"
+        />
+
+    <TextView
+        android:id="@+id/text_min_label_item_detail"
+        app:layout_constraintStart_toStartOf="@id/text_max_label_item_detail"
+        app:layout_constraintEnd_toEndOf="@id/text_max_label_item_detail"
+        app:layout_constraintTop_toBottomOf="@+id/text_max_value_item_detail"
+        tools:text="Menor lance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:id="@+id/text_min_value_item_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_min_label_item_detail"
+        android:text="R$ 300,00"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginLeft="8dp"
+        android:textSize="21sp"
+        android:textColor="@color/red"
+        />
+
+    <TextView
+        android:id="@+id/text_info_separator_item_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_min_value_item_detail"
+        tools:text="Maiores lances"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_margin="8dp"
+        android:textSize="18dp"
+        />
+
+
+    <TextView
+        android:id="@+id/list_values_max"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/text_info_separator_item_detail"
+        app:layout_constraintStart_toStartOf="@id/text_info_separator_item_detail"
+        app:layout_constraintEnd_toEndOf="@id/text_info_separator_item_detail"
+        tools:text="R$ 1000,00" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
