@@ -6,8 +6,12 @@ import static org.junit.Assert.*;
 
 public class LeilaoTest {
 
+    // Patterns utilizados
+    // [nome do método][Estado de teste][resultado esperado]
+    // [deve][resultado esperado][estado de teste]
+
     @Test
-    public void getDescricao_QuandoRecebeDescricao_DevolveDescricao() {
+    public void deve_DevolveDescricao_QuandoRecebeDescricao() {
         // criar cenario de teste
         Leilao console = new Leilao("Console");
         // executar acao esperada
@@ -16,9 +20,8 @@ public class LeilaoTest {
         assertEquals("Console", descricaoDevolvida);
     }
 
-    // [nome do método][Estado de teste][resultado esperado]
     @Test
-    public void getMaiorLance_QuandoRecebeApenasUmLance_DevolveMaiorLance() {
+    public void deve_DevolveMaiorLance_QuandoRecebeApenasUmLance() {
         Leilao console = new Leilao("Console");
         console.propoe(new Lance(new Usuario("Italo"), 200));
 
@@ -28,7 +31,7 @@ public class LeilaoTest {
     }
 
     @Test
-    public void getMaiorLance_QuandoRecebeMaisDeUmLanceEmOrdemCrescente_DevolveMaiorLance() {
+    public void deve_DevolveMaiorLance_QuandoRecebeMaisDeUmLanceEmOrdemCrescente() {
         Leilao computador = new Leilao("Computador");
         computador.propoe(new Lance(new Usuario("Italo"), 100.0));
         computador.propoe(new Lance(new Usuario("Chico"), 200.0));
@@ -39,7 +42,7 @@ public class LeilaoTest {
     }
 
     @Test
-    public void getMaiorLance_QuandoRecebeMaisDeUmLanceEmOrdemDecrescente_DevolveMaiorLance() {
+    public void deve_DevolveMaiorLance_QuandoRecebeMaisDeUmLanceEmOrdemDecrescente() {
         Leilao carro = new Leilao("Carro");
         carro.propoe(new Lance(new Usuario("Italo"), 10000.0));
         carro.propoe(new Lance(new Usuario("Chico"), 9000.0));
