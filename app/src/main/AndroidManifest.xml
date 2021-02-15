@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LeilaoEstudo">
-        <activity android:name=".ui.activity.LancesLeilaoActivity"></activity>
+        <activity android:name=".ui.activity.ItemDetailActivity"></activity>
         <activity android:name=".ui.activity.ListaLeilaoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,7 +11,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.com.italopatricio.leilaoestudo.R;
+import br.com.italopatricio.leilaoestudo.models.Lance;
 import br.com.italopatricio.leilaoestudo.models.Leilao;
+import br.com.italopatricio.leilaoestudo.models.Usuario;
 import br.com.italopatricio.leilaoestudo.ui.recyclerview.adapter.ListaLeilaoAdapter;
 
 public class ListaLeilaoActivity extends AppCompatActivity {
@@ -24,7 +26,7 @@ public class ListaLeilaoActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.list_recycler_view);
         recyclerView.setAdapter(adapter);
         adapter.setOnItemClickListener(leilao -> {
-            Intent vaiParaLancesLeilao = new Intent(ListaLeilaoActivity.this, LancesLeilaoActivity.class);
+            Intent vaiParaLancesLeilao = new Intent(ListaLeilaoActivity.this, ItemDetailActivity.class);
             vaiParaLancesLeilao.putExtra("leilao", leilao);
             startActivity(vaiParaLancesLeilao);
         });
@@ -32,6 +34,8 @@ public class ListaLeilaoActivity extends AppCompatActivity {
 
     private List<Leilao> leiloesDeExemplo() {
         Leilao console = new Leilao("Console");
+        console.propoe(new Lance(new Usuario("Chixo"), 300.00));
+        console.propoe(new Lance(new Usuario("Italo"), 200.0));
         return new ArrayList<>(Arrays.asList(
                 console
         ));
