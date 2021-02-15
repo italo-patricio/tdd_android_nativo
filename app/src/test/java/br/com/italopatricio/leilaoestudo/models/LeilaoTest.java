@@ -6,9 +6,8 @@ import static org.junit.Assert.*;
 
 public class LeilaoTest {
 
-    private Leilao console = new Leilao("Console");
-    private Usuario italo = new Usuario("Italo");
-    private Usuario chico = new Usuario("Chico");
+    private final Leilao CONSOLE = new Leilao("Console");
+    private final Usuario ITALO = new Usuario("Italo");
 
     // Patterns utilizados
     // [nome do método][Estado de teste][resultado esperado]
@@ -18,7 +17,7 @@ public class LeilaoTest {
     @Test
     public void deve_DevolveDescricao_QuandoRecebeDescricao() {
         // executar acao esperada
-        String descricaoDevolvida = console.getDescricao();
+        String descricaoDevolvida = CONSOLE.getDescricao();
 
         // testar resultado esperado
         assertEquals("Console", descricaoDevolvida);
@@ -26,58 +25,58 @@ public class LeilaoTest {
 
     @Test
     public void deve_DevolveMaiorLance_QuandoRecebeApenasUmLance() {
-        console.propoe(new Lance(italo, 200));
+        CONSOLE.propoe(new Lance(ITALO, 200));
 
-        double maiorLanceDevolvido = console.getMaiorLance();
+        double maiorLanceDevolvido = CONSOLE.getMaiorLance();
 
         assertEquals(200.00, maiorLanceDevolvido, 0.0001);
     }
 
     @Test
     public void deve_DevolveMaiorLance_QuandoRecebeMaisDeUmLanceEmOrdemCrescente() {
-        console.propoe(new Lance(italo, 100.0));
-        console.propoe(new Lance(chico, 200.0));
+        CONSOLE.propoe(new Lance(ITALO, 100.0));
+        CONSOLE.propoe(new Lance(new Usuario("Chico"), 200.0));
 
-        double maiorLanceDevolvido = console.getMaiorLance();
+        double maiorLanceDevolvido = CONSOLE.getMaiorLance();
 
         assertEquals(200.0, maiorLanceDevolvido, 0.0001);
     }
 
     @Test
     public void deve_DevolveMaiorLance_QuandoRecebeMaisDeUmLanceEmOrdemDecrescente() {
-        console.propoe(new Lance(italo, 10000.0));
-        console.propoe(new Lance(chico, 9000.0));
+        CONSOLE.propoe(new Lance(ITALO, 10000.0));
+        CONSOLE.propoe(new Lance(new Usuario("Chico"), 9000.0));
 
-        double maiorLanceDevolvido = console.getMaiorLance();
+        double maiorLanceDevolvido = CONSOLE.getMaiorLance();
 
         assertEquals(10000.0, maiorLanceDevolvido, 0.0001);
     }
 
     @Test
     public void deve_DevolveMenorLance_QuandoRecebeApenasUmLance() {
-        console.propoe(new Lance(italo, 200));
+        CONSOLE.propoe(new Lance(ITALO, 200));
 
-        double menorLanceDevolvido = console.getMenorLance();
+        double menorLanceDevolvido = CONSOLE.getMenorLance();
 
         assertEquals(200.00, menorLanceDevolvido, 0.0001);
     }
 
     @Test
     public void deve_DevolveMenorLance_QuandoRecebeMaisDeUmLanceEmOrdemCrescente() {
-        console.propoe(new Lance(italo, 100.0));
-        console.propoe(new Lance(chico, 200.0));
+        CONSOLE.propoe(new Lance(ITALO, 100.0));
+        CONSOLE.propoe(new Lance(new Usuario("Chico"), 200.0));
 
-        double menorLanceDevolvido = console.getMenorLance();
+        double menorLanceDevolvido = CONSOLE.getMenorLance();
 
         assertEquals(100.0, menorLanceDevolvido, 0.0001);
     }
 
     @Test
     public void deve_DevolveMenorLance_QuandoRecebeMaisDeUmLanceEmOrdemDecrescente() {
-        console.propoe(new Lance(italo, 10000.0));
-        console.propoe(new Lance(chico, 9000.0));
+        CONSOLE.propoe(new Lance(ITALO, 10000.0));
+        CONSOLE.propoe(new Lance(new Usuario("Chico"), 9000.0));
 
-        double menorLanceDevolvido = console.getMenorLance();
+        double menorLanceDevolvido = CONSOLE.getMenorLance();
 
         assertEquals(9000.0, menorLanceDevolvido, 0.0001);
     }
