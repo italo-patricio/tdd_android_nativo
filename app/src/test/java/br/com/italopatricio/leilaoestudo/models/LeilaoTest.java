@@ -146,9 +146,18 @@ public class LeilaoTest {
 
     }
     @Test
-    public void deve_DevolvevorTresMaioresLances_QuandoNaoRecebeLance() {
-        List<Lance> tresMaioresLancesDevolvidos = CONSOLE.treMaioresLances();
+    public void deve_DevolvevorZeroParaMaiorLance_QuandoNaoRecebeLance() {
+        double maiorLanceDevolvido = CONSOLE.getMaiorLance();
 
-        assertEquals(0, tresMaioresLancesDevolvidos.size());
+        assertEquals(0, maiorLanceDevolvido, 0.00001);
     }
+
+    @Test
+    public void deve_DevolverValorZeroParaMenorLance_QuandoNaoTiverLances() {
+        double menoLanceDevolvido = CONSOLE.getMenorLance();
+
+        assertEquals(0, menoLanceDevolvido, 0.00001);
+    }
+
+
 }
