@@ -10,7 +10,7 @@ public class LeilaoTest {
 
     public static final double DELTA = 0.0001;
     private final Leilao CONSOLE = new Leilao("Console");
-    private final Usuario ITALO = new Usuario("Italo");
+    private final Usuario ITALO = new Usuario("ITALO");
 
 
     // Patterns utilizados
@@ -149,6 +149,15 @@ public class LeilaoTest {
         assertEquals(1, quantidadeLancesDevolvida);
     }
 
+    @Test
+    public void naoDeve_AdicionarLance_QuandoForOMesmoUsuarioDoUltimoLance() {
+        CONSOLE.propoe(new Lance(ITALO, 530.0));
+        CONSOLE.propoe(new Lance(new Usuario("ITALO"), 580.0));
+
+        int quantidadeLancesDevolvida = CONSOLE.quantidadeLances();
+
+        assertEquals(1, quantidadeLancesDevolvida);
+    }
 
 
 }
